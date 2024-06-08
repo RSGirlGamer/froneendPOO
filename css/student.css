@@ -1,0 +1,23 @@
+body.loading {
+  display: none;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mini-header {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: space-between;
+}
+
+.titulo {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}

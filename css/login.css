@@ -1,0 +1,41 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 8px; /* bordes redondeados opcionales */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* sombra opcional */
+}
+
+.username {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 32px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label,
+input {
+  margin-bottom: 8px;
+}
+
+input[type="submit"] {
+  margin-top: 16px;
+}

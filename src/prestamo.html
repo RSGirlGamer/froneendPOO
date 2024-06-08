@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Módulo de Préstamos</title>
+    <link rel="stylesheet" href="../css/overall.css" />
+    <link rel="stylesheet" href="../css/prestamo.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <button onclick="history.back()">
+          <img src="../img/back.svg" alt="back" />Regresar
+        </button>
+        <h1>Módulo de préstamos</h1>
+      </div>
+      <div id="prestamos" class="tabcontent">
+        <div id="realizarPrestamo">
+          <h3>Realizar Préstamo</h3>
+          <form id="formularioRealizarPrestamo">
+            <div>
+              <label for="userSelect">Seleccione el usuario</label>
+              <select id="userSelect"></select>
+            </div>
+            <div>
+              <label for="materialSelect">Seleccione el material</label>
+              <select id="materialSelect"></select>
+            </div>
+            <div class="submit">
+              <button type="submit">Realizar Préstamo</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/prestamos.js"></script>
+  </body>
+</html>

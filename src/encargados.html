@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Módulo de Encargados</title>
+    <link rel="stylesheet" href="../css/overall.css" />
+    <link rel="stylesheet" href="../css/encargados.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <button onclick="history.back()">
+          <img src="../img/back.svg" alt="back" />Regresar
+        </button>
+        <h1>Módulo de encargados</h1>
+      </div>
+
+      <div class="tabs">
+        <div class="column">
+          <button
+            class="tablink active"
+            onclick="openTab(event, 'ingresarUsuarios', 'formularioCrearUsuarios')"
+          >
+            Ingresar Usuarios y Asignar Privilegios
+          </button>
+          <button
+            class="tablink"
+            onclick="openTab(event, 'configurarPrestamos')"
+          >
+            Configurar Préstamos
+          </button>
+        </div>
+        <div class="column">
+          <button
+            class="tablink"
+            onclick="openTab(event, 'restablecerContraseña', 'resetPasswordForm','searchUserForm', 'userSelect')"
+          >
+            Restablecer Contraseña de Usuarios
+          </button>
+          <button class="tablink" onclick="openTab(event, 'prestamos')">
+            Préstamos
+          </button>
+        </div>
+        <div class="column">
+          <button
+            class="tablink"
+            onclick="openTab(event, 'ingresarEjemplares')"
+          >
+            Ingresar Nuevos Ejemplares
+          </button>
+          <button class="tablink" onclick="openTab(event, 'devoluciones')">
+            Devoluciones
+          </button>
+        </div>
+        <div class="column">
+          <button
+            class="tablink"
+            onclick="openTab(event, 'consultaEjemplares')"
+          >
+            Consulta de Ejemplares
+          </button>
+
+          <button class="tablink" onclick="openTab(event, 'calcularMora')">
+            Calcular Mora
+          </button>
+        </div>
+      </div>
+
+      <div id="ingresarUsuarios" class="tabcontent">
+        <h3>Ingresar usuarios y asignar privilegios</h3>
+        <div id="crearUsuarios">
+          <form id="formularioCrearUsuarios">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required /><br />
+            <label for="last_name">Apellido:</label>
+            <input type="text" id="last_name" name="last_name" required /><br />
+            <label for="username">Nombre de usuario:</label>
+            <input type="text" id="username" name="username" required /><br />
+            <label for="password">Contraseña:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+            /><br />
+            <label for="facultad_id">Facultad:</label>
+            <select id="facultad_id" name="facultad_id" required>
+              <option value="" hidden>Seleccione una facultad</option></select
+            ><br />
+            <label for="user_type">Tipo de Usuario:</label>
+            <select id="user_type" name="user_type" required>
+              <option value="" hidden>Seleccione un tipo de usuario</option>
+              <option value="admin">Administrador</option>
+              <option value="prof">Profesor</option>
+              <option value="student">Estudiante</option>
+            </select>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required /><br />
+            <input type="hidden" name="user_id" />
+            <div class="submit">
+              <button type="submit">Crear Usuario</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="restablecerContraseña" class="tabcontent">
+        <h3>Restablecer contraseña de usuarios</h3>
+        <!-- Formulario de Búsqueda de Usuario -->
+        <form id="searchUserForm">
+          <label for="searchUsername">Buscar Usuario:</label><br />
+          <div class="wrapper">
+            <input
+              type="text"
+              id="searchUsername"
+              name="searchUsername"
+              required
+            /><br /><br />
+            <button type="submit">Buscar</button>
+          </div>
+        </form>
+
+        <!-- Lista Desplegable de Resultados de Búsqueda -->
+        <select id="userSelect" size="5"></select
+        ><br /><br />
+        <hr />
+        <br /><br />
+
+        <!-- Formulario de Restablecimiento de Contraseña -->
+        <div id="restablecerContrasenia">
+          <form id="resetPasswordForm">
+            <label for="currentPassword">Contraseña Actual:</label><br />
+            <input
+              type="text"
+              id="currentPassword"
+              name="currentPassword"
+              disabled
+            /><br /><br />
+
+            <label for="newPassword">Nueva Contraseña:</label><br />
+            <input
+              type="password"
+              id="newPassword"
+              name="newPassword"
+              required
+            /><br /><br />
+
+            <div class="submit">
+              <button type="submit">Restablecer Contraseña</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="ingresarEjemplares" class="tabcontent">
+        <h3>Ingresar ejemplares</h3>
+        <div id="crearEjemplares">
+          <form id="formularioCrearEjemplares">
+            <label for="tipo">Tipo de ejemplar:</label>
+            <select id="tipo" name="tipo" required>
+              <option value="" hidden>Seleccione un tipo de ejemplar</option>
+              <option value="libro">Libro</option>
+              <option value="obra">Obra</option>
+              <option value="cd">CD</option>
+              <option value="revista">Revista</option>
+              <option value="tesis">Tesis</option>
+              <option value="otros">Otros</option>
+            </select>
+
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required /><br />
+            <label for="last_name">Apellido:</label>
+            <input type="text" id="last_name" name="last_name" required /><br />
+            <label for="username">Nombre de usuario:</label>
+            <input type="text" id="username" name="username" required /><br />
+            <label for="password">Contraseña:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+            /><br />
+            <br />
+            <label for="user_type">Tipo de Usuario:</label>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required /><br />
+            <input type="hidden" name="user_id" />
+            <div class="submit">
+              <button type="submit">Crear Usuario</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/actions.js"></script>
+    <script src="../js/encargados.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
