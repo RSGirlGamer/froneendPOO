@@ -66,3 +66,15 @@ button {
 .hide {
   display: none;
 }
+
+#prestamos {
+  width: 100%;
+}
+
+#formularioRealizarPrestamo #userSelect {
+  height: 40px;
+}
+
+#formularioDevolucion #userSelect {
+  height: 40px;
+}

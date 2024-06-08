@@ -285,6 +285,89 @@
           </form>
         </div>
       </div>
+
+      <div id="calcularMora" class="tabcontent">
+        <h3>Cálculo de Mora</h3>
+        <div id="idCalcularMora">
+          <form id="formularioCalcularMora">
+            <label for="moraInput"
+              >Digite cuanto se le añadirá al usuario por dia</label
+            >
+            <br />
+            <input id="moraInput" type="number" />
+            <br />
+            <button type="submit">Guardar</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="configurarPrestamos" class="tabcontent">
+        <h3>Configuración de Préstamo de Materiales</h3>
+        <div id="idConfigurarPrestamosA">
+          <form id="formularioConfigurarPrestamosA">
+            <label for="borrowStudent"
+              >Digite cuantos libros puede tener prestado un alumno</label
+            >
+            <br />
+            <input id="borrowStudent" type="number" />
+            <br />
+            <button type="submit">Guardar</button>
+          </form>
+        </div>
+        <div id="idConfigurarPrestamosP">
+          <form id="formularioConfigurarPrestamosP">
+            <label for="borrowMaster"
+              >Digite cuantos libros puede tener prestado un profesor</label
+            >
+            <br />
+            <input id="borrowMaster" type="number" />
+            <br />
+            <button type="submit">Guardar</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="prestamos" class="tabcontent">
+        <div id="realizarPrestamo">
+          <h3>Realizar Préstamo</h3>
+          <form id="formularioRealizarPrestamo">
+            <div>
+              <label for="userSelect">Seleccione el usuario</label>
+              <select id="userSelect"></select>
+            </div>
+            <div>
+              <label for="materialSelect">Seleccione el material</label>
+              <select id="materialSelect"></select>
+            </div>
+            <div class="submit">
+              <button type="submit">Realizar Préstamo</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="devoluciones" class="tabcontent">
+        <h3>Devolución de Material</h3>
+        <div id="idCalcularMora">
+          <form id="formularioDevolucion">
+            <label for="userSelect"
+              >Seleccione el usuario que devolverá el material</label
+            >
+            <br />
+            <select id="userSelect"></select>
+            <br />
+            <label for="materialSelect"
+              >Seleccione el material que será devuelto</label
+            >
+            <br />
+            <select id="materialSelect" disabled></select>
+            <br />
+            <label id="moraLabel"></label>
+            <br />
+            <button type="submit">Devolver</button>
+          </form>
+        </div>
+      </div>
     </div>
 
     <script src="../js/actions.js"></script>
