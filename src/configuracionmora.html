@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Módulo de Encargados</title>
+    <!-- Libreria que da estilo al select (La parte de abajo) -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Módulo de encargados</h1>
+    <div class="tabs">
+      <button
+        class="tablink active"
+        onclick="openTab(event, 'ingresarUsuarios', 'formularioCrearUsuarios')"
+      >
+        Ingresar Usuarios y Asignar Privilegios
+      </button>
+      <button
+        class="tablink"
+        onclick="openTab(event, 'restablecerContraseña', 'resetPasswordForm')"
+      >
+        Restablecer Contraseña de Usuarios
+      </button>
+      <button class="tablink" onclick="openTab(event, 'ingresarEjemplares')">
+        Ingresar Nuevos Ejemplares
+      </button>
+      <button class="tablink" onclick="openTab(event, 'consultaEjemplares')">
+        Consulta de Ejemplares
+      </button>
+      <button class="tablink" onclick="openTab(event, 'prestamos')">
+        Préstamos
+      </button>
+      <button class="tablink" onclick="openTab(event, 'configurarPrestamos')">
+        Configurar Préstamos
+      </button>
+      <button class="tablink" onclick="openTab(event, 'devoluciones')">
+        Devoluciones
+      </button>
+      <button class="tablink" onclick="openTab(event, 'calcularMora')">
+        Calcular Mora
+      </button>
+    </div>
+
+    <div id="calcularMora" class="tabcontent">
+      <h3>Cálculo de Mora</h3>
+      <div id="idCalcularMora">
+        <form id="formularioCalcularMora">
+          <label for="moraInput">Digite cuanto se le añadirá al usuario por dia</label>
+          <br>
+          <input id="moraInput" type="number">
+          <br>
+          <button type="submit">
+            Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Libreria que da la funcionalidad del select (La parte de abajo) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/configuracionmora.js"></script>
+  </body>
+</html>
