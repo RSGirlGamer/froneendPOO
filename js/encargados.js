@@ -4,19 +4,59 @@ function cargarFacultades() {
     .then((response) => response.json())
     .then((data) => {
       const selectFacultad = document.getElementById("facultad_id");
+      const facultad2 = document.getElementById("facultad2");
       data.forEach((facultad) => {
         const option = document.createElement("option");
         option.value = facultad.facultad_id;
         option.textContent = facultad.facultad_name;
         selectFacultad.appendChild(option);
       });
+      data.forEach((facultad) => {
+        const option = document.createElement("option");
+        option.value = facultad.facultad_id;
+        option.textContent = facultad.facultad_name;
+        facultad2.appendChild(option);
+      });
     })
     .catch((error) => console.error("Error al cargar facultades:", error));
 }
 
-///////////////////////////////////////////////////////////////////////////
-// Llamar a la función para cargar las facultades cuando el DOM esté listo
+// Función para cargar carreras desde el servidor
+function cargarCarreras() {
+  fetch("http://localhost:8080/majors")
+    .then((response) => response.json())
+    .then((data) => {
+      const selectCarrera = document.getElementById("carreras");
+      data.forEach((facultad) => {
+        const option = document.createElement("option");
+        option.value = facultad.carrera_id;
+        option.textContent = facultad.carrera_name;
+        selectCarrera.appendChild(option);
+      });
+    })
+    .catch((error) => console.error("Error al cargar facultades:", error));
+}
+
+// Función para cargar carreras cursos el servidor
+function cargarCursos() {
+  fetch("http://localhost:8080/categories")
+    .then((response) => response.json())
+    .then((data) => {
+      const selectCurso = document.getElementById("curso");
+      data.forEach((facultad) => {
+        const option = document.createElement("option");
+        option.value = facultad.curso_id;
+        option.textContent = facultad.curso_name;
+        selectCurso.appendChild(option);
+      });
+    })
+    .catch((error) => console.error("Error al cargar facultades:", error));
+}
+
+// Llamar a la función para cargar dropdowns cuando el DOM esté listo
 document.addEventListener("DOMContentLoaded", cargarFacultades);
+document.addEventListener("DOMContentLoaded", cargarCarreras);
+document.addEventListener("DOMContentLoaded", cargarCursos);
 
 ///////////////////////////////////////////////////////////////////////////
 // Función para ingresar usuarios y asignar privilegios
@@ -350,3 +390,218 @@ function updatePassword(userId, newPassword, formIdContrasenia) {
 }
 
 /////////////////////////////// NUEVOS EJEMPLARES ///////////////////////////////
+const formularioCrearEjemplares = document.getElementById(
+  "formularioCrearEjemplares"
+);
+
+//Guardar los valores del formulario
+let ejemplarTitleValue = "";
+let tipoEjemplar = "";
+let authorValue = "";
+let facultadValue = "";
+let carrera = "";
+let curso = "";
+let publicationDate = "";
+let editorial = "";
+let stockValue = "";
+let ubicacionFisica = "";
+let pagesNumber = "";
+let ISBNValue = "";
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  const selectElement = document.getElementById("tipo");
+  selectElement.selectedIndex = 1;
+
+  //Entrada título de ejemplar
+  const campoEjemplarValue = document.getElementById("ejemplarTitle");
+  campoEjemplarValue.addEventListener("change", function () {
+    ejemplarTitleValue = this.value;
+  });
+
+  //Entrada tipo de ejemplar
+  const campoTipoEjemplar = document.getElementById("tipo");
+  campoTipoEjemplar.addEventListener("change", function () {
+    tipoEjemplar = this.value;
+    console.log(tipoEjemplar);
+
+    //Ocultar campos de formulario
+    const divTitle = document.getElementById("divTitle");
+    const divEjemplar = document.getElementById("divEjemplar");
+    const divAutor = document.getElementById("divAutor");
+    const divFacultad = document.getElementById("divFacultad");
+    const divCarrera = document.getElementById("divCarrera");
+    const divCurso = document.getElementById("divCurso");
+    const divPublicationDate = document.getElementById("divPublicationDate");
+    const divEditorial = document.getElementById("divEditorial");
+    const divStock = document.getElementById("divStock");
+    const divUbicacionFisica = document.getElementById("divUbicacionFisica");
+    const divPages = document.getElementById("divPages");
+    const divISBN = document.getElementById("divISBN");
+
+    if (tipoEjemplar === "obra") {
+      divEjemplar;
+      divAutor;
+      divFacultad;
+    } else if (campoTipoEjemplar.value === "cd") {
+      divAutor.classList.remove("hide");
+      divFacultad.classList.remove("hide");
+    }
+  });
+
+  //Entrada en el campo de autor
+  const campoAuthorValue = document.getElementById("author");
+  campoAuthorValue.addEventListener("input", function () {
+    authorValue = this.value;
+  });
+
+  //Entrada en el campo facultad
+  const campoFacultadValue = document.getElementById("facultad2");
+  campoFacultadValue.addEventListener("change", function () {
+    facultadValue = this.value;
+  });
+
+  //Entrada en el campo carreras
+  const campoCarrera = document.getElementById("carreras");
+  campoCarrera.addEventListener("change", function () {
+    carrera = this.value;
+  });
+
+  //Entrada en el campo curso
+  const campoCurso = document.getElementById("curso");
+  campoCurso.addEventListener("change", function () {
+    curso = this.value;
+  });
+
+  //Entrada en el campo fecha de publicación
+  const campoPublicationDate = document.getElementById("publication_date");
+  campoPublicationDate.addEventListener("change", function () {
+    publicationDate = this.value;
+  });
+
+  //Entrada en el campo de editorial
+  const campoEditorial = document.getElementById("editorial");
+  campoEditorial.addEventListener("input", function () {
+    editorial = this.value;
+  });
+
+  // Entrada en el campo de cantidad disponible
+  const campoStockValue = document.getElementById("stock");
+  campoStockValue.addEventListener("input", function () {
+    stockValue = this.value;
+  });
+
+  //Entrada en el campo de ubicación física
+  const campoUbicacionFisica = document.getElementById("ubication");
+  campoUbicacionFisica.addEventListener("input", function () {
+    ubicacionFisica = this.value;
+  });
+
+  // Entrada en el campo de número de páginas
+  const campoPagesNumber = document.getElementById("pages");
+  campoPagesNumber.addEventListener("input", function () {
+    pagesNumber = this.value;
+  });
+
+  // Entrada en el campo de ISBN
+  const campoISBNValue = document.getElementById("isbn");
+  campoISBNValue.addEventListener("input", function () {
+    ISBNValue = this.value;
+  });
+});
+
+formularioCrearEjemplares.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  console.log("tipoEjemplar", tipoEjemplar);
+
+  // Crear objeto del autor
+  const autor = {
+    autor: authorValue,
+  };
+
+  // Crear objeto con los valores del formulario
+  const ejemplar = {
+    titulo: ejemplarTitleValue,
+    id_autor: {
+      id_autor: authorValue, // Suponiendo que authorValue es el ID del autor
+    },
+    tipo: tipoEjemplar,
+    curso_id: {
+      curso_id: curso, // Suponiendo que curso es el ID del curso
+      carrera_id: {
+        carrera_id: carrera, // Suponiendo que carrera es el ID de la carrera
+        facultad_id: {
+          facultad_id: facultadValue, // Suponiendo que facultad es el ID de la facultad
+        },
+      },
+    },
+    fecha_publicacion: publicationDate,
+    editorial: editorial,
+    stock: stockValue,
+    location: ubicacionFisica,
+    numero_paginas: pagesNumber,
+    isbn: ISBNValue,
+  };
+
+  // Enviar los datos del autor a la API
+  fetch("http://localhost:8080/authors/author/save", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(autor),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Realizar la segunda solicitud fetch dentro del bloque then de la primera
+      fetch("http://localhost:8080/authors", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const ultimoElemento = data[data.length - 1];
+          authorValue = ultimoElemento.id_autor;
+
+          fetch("http://localhost:8080/books/book/save", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(ejemplar),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log("Ejemplar guardado con éxito:", data);
+            })
+            .catch((error) => {
+              console.error("Error al guardar el ejemplar:", error);
+            });
+        })
+        .catch((error) => {
+          console.error("Hubo un problema con la solicitud fetch:", error);
+        });
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
+  console.log("Ejemplar", ejemplar);
+});

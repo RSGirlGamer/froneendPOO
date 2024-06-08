@@ -157,37 +157,130 @@
         <h3>Ingresar ejemplares</h3>
         <div id="crearEjemplares">
           <form id="formularioCrearEjemplares">
-            <label for="tipo">Tipo de ejemplar:</label>
-            <select id="tipo" name="tipo" required>
-              <option value="" hidden>Seleccione un tipo de ejemplar</option>
-              <option value="libro">Libro</option>
-              <option value="obra">Obra</option>
-              <option value="cd">CD</option>
-              <option value="revista">Revista</option>
-              <option value="tesis">Tesis</option>
-              <option value="otros">Otros</option>
-            </select>
+            <div id="divTitle">
+              <label for="ejemplarTitle">Título:</label>
+              <input
+                type="text"
+                id="ejemplarTitle"
+                name="ejemplarTitle"
+                required
+              /><br />
+            </div>
 
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required /><br />
-            <label for="last_name">Apellido:</label>
-            <input type="text" id="last_name" name="last_name" required /><br />
-            <label for="username">Nombre de usuario:</label>
-            <input type="text" id="username" name="username" required /><br />
-            <label for="password">Contraseña:</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              required
-            /><br />
-            <br />
-            <label for="user_type">Tipo de Usuario:</label>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required /><br />
-            <input type="hidden" name="user_id" />
+            <div class="two">
+              <div id="divEjemplar">
+                <label for="tipo">Tipo de ejemplar:</label>
+                <select id="tipo" name="tipo" required>
+                  <option value="" hidden>
+                    Seleccione un tipo de ejemplar
+                  </option>
+                  <option value="libro" selected>Libro</option>
+                  <option value="obra">Obra</option>
+                  <option value="cd">CD</option>
+                  <option value="revista">Revista</option>
+                  <option value="tesis">Tesis</option>
+                  <option value="otros">Otros</option>
+                </select>
+              </div>
+              <div id="divAutor">
+                <label for="author">Autor:</label>
+                <input type="text" id="author" name="author" required /><br />
+              </div>
+            </div>
+
+            <div id="divFacultad">
+              <label for="facultad2">Facultad:</label>
+              <select id="facultad2" name="facultad2" required>
+                <option value="" hidden>Seleccione una facultad</option>
+              </select>
+            </div>
+
+            <div class="two">
+              <div id="divCarrera">
+                <label for="carreras">Carrera:</label>
+                <select id="carreras" name="carreras" required>
+                  <option value="" hidden>Seleccione una carrera</option>
+                </select>
+              </div>
+
+              <div id="divCurso">
+                <label for="curso">Curso:</label>
+                <select id="curso" name="curso" required>
+                  <option value="" hidden>Seleccione un curso</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="two">
+              <div id="divPublicationDate">
+                <label for="publication_date">Fecha de publicación:</label
+                ><br />
+                <input
+                  type="date"
+                  id="publication_date"
+                  name="publication_date"
+                  required
+                /><br />
+              </div>
+
+              <div id="divEditorial">
+                <label for="editorial">Editorial:</label>
+                <input
+                  type="text"
+                  id="editorial"
+                  name="editorial"
+                  required
+                /><br />
+              </div>
+            </div>
+
+            <div id="divStock">
+              <label for="stock">Cantidad disponible:</label>
+              <input
+                type="number"
+                min="0"
+                id="stock"
+                name="stock"
+                required
+              /><br />
+            </div>
+
+            <div id="divUbicacionFisica">
+              <label for="ubication">Ubicacón física:</label>
+              <input
+                type="text"
+                id="ubication"
+                name="ubication"
+                required
+              /><br />
+            </div>
+
+            <div class="two">
+              <div id="divPages">
+                <label for="pages">Número de páginas:</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="pages"
+                  name="pages"
+                  required
+                /><br />
+              </div>
+
+              <div id="divISBN">
+                <label for="isbn">ISBN:</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="isbn"
+                  name="isbn"
+                  required
+                /><br />
+              </div>
+            </div>
+
             <div class="submit">
-              <button type="submit">Crear Usuario</button>
+              <button type="submit">Crear Ejemplar</button>
             </div>
           </form>
         </div>

@@ -72,7 +72,7 @@ $(document).ready(function () {
           method: "GET",
           url: "http://localhost:8080/borrows",
         });
-        stockrequest.done(function (dataBorrow) {
+        canBorrowRequest.done(function (dataBorrow) {
           var canBorrow = true;
           var materialsBorrowed = 0;
           var user = {};

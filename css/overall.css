@@ -29,6 +29,8 @@ input[type="text"],
 input[type="password"],
 input[type="submit"],
 input[type="email"],
+input[type="number"],
+input[type="date"],
 select {
   height: 40px;
   padding: 0 8px;
